@@ -107,8 +107,8 @@
   #
 
 module.exports = (robot) ->
-    robot.respond /kiki/i, (msg) ->
-        msg.http('http://catfacts-api.appspot.com/api/facts?number=1')
+    robot.hear /kiki/i, (res) ->
+        robot.http('http://catfacts-api.appspot.com/api/facts?number=1')
             .get() (error, response, body) ->
                 # passes back the complete reponse
                 response = JSON.parse(body)
@@ -119,7 +119,7 @@ module.exports = (robot) ->
                         \bcat\b
                         )///ig
                     fact = response.facts[0]
-                    msg.send fact.replace(kikPattern, 'kiki$1')
+                    res.send fact.replace(kikPattern, 'kiki$1')
                 else
-                    msg.send "Unable to get kiki facts right now."
+                    res.send "Unable to get kiki facts right now."
 
