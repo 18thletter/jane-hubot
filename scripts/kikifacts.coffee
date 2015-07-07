@@ -118,7 +118,7 @@ module.exports = (robot) ->
                         \bcat\b
                         )///ig
                     fact = response.facts[0]
-                    res.send fact.replace(kikPattern, 'kiki$1')
+                    res.send fact.replace(kikiPattern, 'kiki$1')
                 else
                     res.send "Unable to get kiki facts right now."
 
