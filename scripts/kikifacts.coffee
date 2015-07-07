@@ -107,7 +107,7 @@
   #
 
 module.exports = (robot) ->
-    robot.hear /kiki/i, (res) ->
+    robot.respond /kiki/i, (res) ->
         res.send 'hi'
         #robot.http('http://catfacts-api.appspot.com/api/facts?number=1')
             #.get() (error, response, body) ->
