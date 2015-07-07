@@ -112,11 +112,11 @@ module.exports = (robot) ->
             .get() (error, response, body) ->
                 response = JSON.parse(body)
                 if response.success == "true"
-                    kikiPattern = ///(
-                        \bcats\b
+                    kikiPattern = ///
+                        \bcat(s)\b
                         |
                         \bcat\b
-                        )///ig
+                        ///ig
                     fact = response.facts[0]
                     res.send fact.replace(kikiPattern, 'kiki$1')
                 else
