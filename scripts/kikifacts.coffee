@@ -108,9 +108,9 @@
 
 module.exports = (robot) ->
     robot.respond /.*\bkiki\b.*/i, (res) ->
-        res.send 'hi'
         robot.http('http://catfacts-api.appspot.com/api/facts?number=1')
             .get() (error, response, body) ->
+                res.send 'in here'
                 # passes back the complete reponse
                 response = JSON.parse(body)
                 if response.success == "true"
